@@ -1,4 +1,4 @@
-package com.example.gottago
+package com.example.pottytime
 
 import org.junit.Test
 

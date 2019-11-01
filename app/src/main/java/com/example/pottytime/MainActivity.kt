@@ -1,4 +1,4 @@
-package com.example.gottago
+package com.example.pottytime
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
