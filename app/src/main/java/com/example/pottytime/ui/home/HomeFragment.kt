@@ -17,6 +17,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
@@ -46,10 +47,16 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
     override fun onMapReady(googleMap: GoogleMap?) {
         mMap = googleMap!!
-        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN)
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE)
+        val schoolBounds = LatLngBounds(LatLng(34.061334,-118.174004),
+            LatLng(34.071732,-118.162157)
+        )
         val sydney = LatLng(40.73, -73.99)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f))
+        //mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f))
+        mMap.setLatLngBoundsForCameraTarget(schoolBounds)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolBounds.center,20.0f))
+        mMap.setMinZoomPreference(18.0f)
         setUpMap()
     }
 
