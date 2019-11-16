@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -13,6 +16,7 @@ import com.example.pottytime.R
 class NotificationsFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var toiletListView: ListView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +30,15 @@ class NotificationsFragment : Fragment() {
         notificationsViewModel.text.observe(this, Observer {
             textView.text = it
         })
+
+        toiletListView = root.findViewById(R.id.toilet_list)
+        val toiletArray = arrayOf("Salazar Hall", "King Hall", "ECST")
+        toiletListView.adapter = ArrayAdapter<String>(root.context, android.R.layout.simple_expandable_list_item_1, toiletArray)
+
+        toiletListView.setOnItemClickListener { adapterView, view, i, l ->
+            Toast.makeText(root.context, "tapped", Toast.LENGTH_SHORT)
+        }
+
         return root
     }
 }
