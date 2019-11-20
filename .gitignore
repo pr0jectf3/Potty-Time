@@ -12,6 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
+*.json
 
 # Android Studio / IntelliJ IDEA 
 *.iws
