@@ -21,7 +21,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlin.reflect.typeOf
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
@@ -48,6 +50,13 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         val mapFragment = childFragmentManager.findFragmentById(R.id.mapView) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        rootView.homeButton.setOnClickListener {
+            val dialog = BottomSheetDialog(this.requireContext())
+            val view = layoutInflater.inflate(R.layout.dialog_layout,null)
+            dialog.setContentView(view)
+            dialog.show()
+        }
+
         return rootView
     }
     override fun onMapReady(googleMap: GoogleMap?) {
@@ -72,7 +81,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f))
         mMap.setLatLngBoundsForCameraTarget(schoolBounds)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolBounds.center,20.0f))
-        mMap.setMinZoomPreference(18.0f)
+        mMap.setMinZoomPreference(16.0f)
         setUpMap()
     }
 
