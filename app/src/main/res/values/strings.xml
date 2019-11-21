@@ -6,4 +6,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit">edit</string>
+    <string name="firstName">Pasindu</string>
+    <string name="lastName">Siriwardena</string>
+    <string name="phoneNumber">XXX-XXX-XXXX</string>
+    <string name="emailAddress">test@gmail.com</string>
 </resources>
