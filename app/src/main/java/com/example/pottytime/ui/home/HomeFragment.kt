@@ -19,9 +19,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.dialog_layout.*
@@ -89,13 +87,11 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                     val lat = document.data.get("lat").toString().toDouble()
                     val lon = document.data.get("lon").toString().toDouble()
                     val coord = LatLng(lat,lon)
-                    //Log.d(TAG, "DocumentSnapshot data: ${document.data.get("lat") is Double}")
+                    //val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
+                    //marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilet_map))
                     mMap.addMarker(MarkerOptions().position(coord).title("bathroom"))
                 }
             }
-        val sydney = LatLng(40.73, -73.99)
-        //mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f))
         mMap.setLatLngBoundsForCameraTarget(schoolBounds)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolBounds.center,20.0f))
         mMap.setMinZoomPreference(16.0f)
