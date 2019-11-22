@@ -2,6 +2,7 @@ package com.example.pottytime.ui.dashboard
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -30,10 +31,16 @@ class EditFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
-        R.id.save -> {
-            NavHostFragment.findNavController(nav_host_fragment).navigate(R.id.action_editFragment_to_navigation_dashboard)
+        R.id.edit -> {
+            replaceFragment(DashboardFragment())
             true
         }
         else -> super.onOptionsItemSelected(item)
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentTransaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.commit()
     }
 }
