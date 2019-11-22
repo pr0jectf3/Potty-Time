@@ -1,28 +1,87 @@
 package com.example.pottytime.ui.dashboard
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.example.pottytime.R
+import com.example.pottytime.ui.loginPage.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
+import kotlinx.android.synthetic.main.fragment_dashboard.view.btn_sign_out_temp
+import kotlinx.android.synthetic.main.fragment_logout.view.*
 
 class DashboardFragment : Fragment() {
+    var uid : String? = null
+    var auth : FirebaseAuth? = null
+    var currentUserUid : String? = null
+    var fbAuth = FirebaseAuth.getInstance()
 
+    var checkIfUserLogOut : Boolean = false
     private lateinit var dashboardViewModel: DashboardViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+
+    ): View?{
+        dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
+        uid = arguments?.getString("destinationUid")
+        auth = FirebaseAuth.getInstance()
+
+        currentUserUid = auth?.currentUser?.uid
+
+
+        root.btn_sign_out_temp.setOnClickListener {
+            activity?.finish()
+            fbAuth.signOut()
+            auth?.signOut()
+            FirebaseAuth.getInstance().signOut()
+            checkIfUserLogOut = true;
+
+            val intent = Intent (activity, LoginActivity::class.java)
+            intent.putExtra("checkIfUserLogOut", checkIfUserLogOut)
+            startActivity(intent)
+        }
+        setHasOptionsMenu(true)
         return root
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.edit, menu)
+        menu.findItem(R.id.edit).setVisible(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+       R.id.edit -> {
+           replaceFragment(EditFragment())
+           true
+        }
+        else -> super.onOptionsItemSelected(item)
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+       val fragmentTransaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.commit()
+    }
+
+
+
 }
