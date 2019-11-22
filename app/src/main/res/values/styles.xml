@@ -14,4 +14,9 @@
         <item name="android:height">150dp</item>
         <item name="height">60dp</item>
     </style>
+
+    <style name="LogInTheme" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/white</item>>
+    </style>
+
 </resources>
