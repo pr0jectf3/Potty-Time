@@ -14,11 +14,33 @@ import com.example.pottytime.R
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_logout.view.*
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.tasks.Task
+import androidx.annotation.NonNull
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.common.api.GoogleApiClient
+
+
+
+
+
+
 
 /**
  * A simple [Fragment] subclass.
  */
 class LogoutFragment : Fragment() {
+    var uid : String? = null
+    var auth : FirebaseAuth? = null
+    var currentUserUid : String? = null
+    var fbAuth = FirebaseAuth.getInstance()
+
+    var checkIfUserLogOut : Boolean = false
+
+    private var mGoogleSignInClient = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,15 +48,24 @@ class LogoutFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_logout, container, false)
 
-        root.btn_sign_out_temp.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val intent = Intent (getActivity(), MainActivity::class.java)
-            startActivity(intent)
+        uid = arguments?.getString("destinationUid")
+        auth = FirebaseAuth.getInstance()
 
+        currentUserUid = auth?.currentUser?.uid
+
+
+        root.btn_sign_out_temp.setOnClickListener {
+            activity?.finish()
+            fbAuth.signOut()
+            auth?.signOut()
+            FirebaseAuth.getInstance().signOut()
+            checkIfUserLogOut = true;
+
+            val intent = Intent (activity, LoginActivity::class.java)
+            intent.putExtra("checkIfUserLogOut", checkIfUserLogOut)
+            startActivity(intent)
         }
 
         return root
     }
-
-
 }

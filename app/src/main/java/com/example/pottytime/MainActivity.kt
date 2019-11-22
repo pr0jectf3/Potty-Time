@@ -47,11 +47,11 @@ class MainActivity : AppCompatActivity() {
         // Checking if user is already logged in
         firebaseAuth = FirebaseAuth.getInstance()
         val user = FirebaseAuth.getInstance().currentUser
-        if (user == null) {
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        if (user == null) {
+//            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         // Have map fragment (homefragment) as default
         replaceFragment(HomeFragment())
@@ -77,6 +77,10 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(LogoutFragment())
                 return@OnNavigationItemSelectedListener true
             }
+//            R.id.navigation_notifications -> {
+//                replaceFragment(IVANREVIEWFragment())
+//                return@OnNavigationItemSelectedListener true
+//            }
         }
         false
     }

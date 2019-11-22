@@ -20,4 +20,9 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Logout" />
 
+    <item
+        android:id="@+id/navigation_review"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Review" />
+
 </menu>
