@@ -4,10 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.pottytime.MainActivity
 import com.example.pottytime.R
+import com.example.pottytime.ui.dashboard.DashboardFragment
+import com.example.pottytime.ui.home.HomeFragment
+import com.example.pottytime.ui.notifications.NotificationsFragment
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
@@ -48,6 +55,10 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this,""+user!!.email,Toast.LENGTH_SHORT).show()
 
                 btn_sign_out.isEnabled = true
+
+                // This is to switch to main scence
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
             }else {
                 Toast.makeText(this,""+response!!.error!!.message,Toast.LENGTH_SHORT).show()
             }
