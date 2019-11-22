@@ -36,5 +36,4 @@ class EditFragment : Fragment() {
         }
         else -> super.onOptionsItemSelected(item)
     }
-
 }

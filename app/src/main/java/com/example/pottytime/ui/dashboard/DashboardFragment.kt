@@ -47,5 +47,4 @@ class DashboardFragment : Fragment() {
         }
         else -> super.onOptionsItemSelected(item)
     }
-
 }
