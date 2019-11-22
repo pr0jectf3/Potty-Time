@@ -3,23 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:text="UNKNOWN"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="108dp"
         android:text="Neutral"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +20,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="84dp"
         android:text="Handicap"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -49,24 +40,15 @@
         android:id="@+id/handicapButton"
         android:layout_width="75dp"
         android:layout_height="64dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="57dp"
         android:layout_marginTop="44dp"
+        android:layout_marginEnd="108dp"
         android:background="#00F1ECEC"
         android:scaleType="fitXY"
         android:src="@drawable/handicap_on"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/neutralButton"
         app:layout_constraintTop_toBottomOf="@+id/womenButton" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="75dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="44dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/handicapButton"
-        app:layout_constraintTop_toBottomOf="@+id/familyButton"
-        tools:srcCompat="@tools:sample/avatars[0]" />
 
     <TextView
         android:id="@+id/textView2"
@@ -97,7 +79,7 @@
         android:id="@+id/neutralButton"
         android:layout_width="75dp"
         android:layout_height="64dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="96dp"
         android:layout_marginTop="44dp"
         android:background="#00EBE8E8"
         android:scaleType="fitXY"
@@ -134,12 +116,12 @@
         android:layout_width="290dp"
         android:layout_height="38dp"
         android:layout_marginTop="48dp"
+        android:background="@drawable/button_round"
         android:text="Reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/handicapButton"
-        android:background="@drawable/button_round" />
+        app:layout_constraintTop_toBottomOf="@+id/handicapButton" />
 
     <TextView
         android:id="@+id/textView3"
@@ -148,7 +130,7 @@
         android:layout_marginTop="40dp"
         android:text="Map"
         android:textColor="#000000"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button19" />
