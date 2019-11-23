@@ -1,24 +1,14 @@
 package com.example.pottytime
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.pottytime.ui.dashboard.DashboardFragment
 import com.example.pottytime.ui.home.HomeFragment
-import com.example.pottytime.ui.loginPage.LoginActivity
 import com.example.pottytime.ui.loginPage.LogoutFragment
 import com.example.pottytime.ui.notifications.NotificationsFragment
-import com.example.pottytime.ui.review.ReviewFragment
-import com.firebase.ui.auth.IdpResponse
-import com.google.android.gms.common.util.CollectionUtils.setOf
+import com.example.pottytime.ui.bathroom.BathroomsFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -78,8 +68,8 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(LogoutFragment())
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_review -> {
-                replaceFragment(ReviewFragment())
+            R.id.navigation_bathrooms -> {
+                replaceFragment(BathroomsFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }

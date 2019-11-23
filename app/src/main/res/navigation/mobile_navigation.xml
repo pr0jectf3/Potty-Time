@@ -37,9 +37,9 @@
             app:popUpTo="@+id/navigation_dashboard" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_reviews"
+        android:id="@+id/navigation_bathrooms"
         android:name="com.example.pottytime.navigation_reviews"
-        android:label="fragment_reviews"
-        tools:layout="@layout/fragment_reviews" />
+        android:label="fragment_bathrooms"
+        tools:layout="@layout/fragment_bathrooms" />
 
 </navigation>

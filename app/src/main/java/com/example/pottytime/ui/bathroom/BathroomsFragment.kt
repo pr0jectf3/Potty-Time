@@ -1,4 +1,4 @@
-package com.example.pottytime.ui.review
+package com.example.pottytime.ui.bathroom
 
 
 import android.os.Bundle
@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pottytime.R
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_reviews.*
+import kotlinx.android.synthetic.main.fragment_bathrooms.*
 
-class ReviewFragment : Fragment() {
+class BathroomsFragment : Fragment() {
 
     // Access a Cloud Firestore instance from your Activity
     val db = FirebaseFirestore.getInstance()
@@ -22,7 +22,7 @@ class ReviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reviews, container, false)
+        return inflater.inflate(R.layout.fragment_bathrooms, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class ReviewFragment : Fragment() {
 
         refreshReviewLayout.isRefreshing = true
 
-        var reviews = listOf<Reviews>()
+        var bathrooms = listOf<Bathroom>()
 
         val docRef = db.collection("bathrooms")
         docRef.get()
@@ -51,16 +51,20 @@ class ReviewFragment : Fragment() {
 
                         val location = k.data.get("building").toString()
                         val floor = k.data.get("floor").toString()
+                        val gender = k.data.get("gender").toString()
+                        val isFamily = k.data.get("isFamily").toString().toBoolean()
+                        val isHandicap = k.data.get("isHandicap").toString().toBoolean()
+                        val nearby = k.data.get("nearbyRoom").toString()
                         Log.d(location, floor)
 
-                        reviews += Reviews(i, location, floor)
+                        bathrooms += Bathroom(i, location, floor, gender, isFamily, isHandicap, nearby)
                         i += 1
 
                     }
 
                     refreshReviewLayout.isRefreshing = false
                     recyclerViewReview.layoutManager = LinearLayoutManager(activity)
-                    recyclerViewReview.adapter = ReviewsAdapter(reviews)
+                    recyclerViewReview.adapter = BathroomsAdapter(bathrooms)
 
 
                 } else {
