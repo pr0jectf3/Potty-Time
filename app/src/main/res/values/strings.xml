@@ -15,6 +15,10 @@
     <string name="title_map">Map</string>
 
     <string name="locationName">Location Name</string>
-    <string name="review">Review</string>
+    <string name="reviewFloor">1</string>
+    <string name="reviewFloorSub">st</string>
+    <string name="reviewFloorFloor">Floor</string>
+    <string name="reviewId">1</string>
+    <string name="dot">.</string>
 
 </resources>

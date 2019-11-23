@@ -46,14 +46,15 @@ class ReviewFragment : Fragment() {
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-
+                    var i = 1
                     for(k in document){
-                        var i = 0
-                        val location = k.data.get("building").toString()
-                        val review = "review"
-                        Log.d(location, review)
 
-                        reviews += Reviews(i, location, review)
+                        val location = k.data.get("building").toString()
+                        val floor = k.data.get("floor").toString()
+                        Log.d(location, floor)
+
+                        reviews += Reviews(i, location, floor)
+                        i += 1
 
                     }
 
