@@ -3,21 +3,22 @@ package com.example.pottytime.ui.bathroom
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pottytime.R
 import kotlinx.android.synthetic.main.bathroom_card.view.*
 
-class BathroomsAdapter(val bathrooms: List<Bathroom>): RecyclerView.Adapter<BathroomsAdapter.ReviewViewHolder>(){
+class BathroomsAdapter(val bathrooms: List<Bathroom>): RecyclerView.Adapter<BathroomsAdapter.BathroomViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-        return ReviewViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BathroomViewHolder {
+        return BathroomViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.bathroom_card, parent, false)
         )
     }
 
     override fun getItemCount() = bathrooms.size
 
-    override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BathroomViewHolder, position: Int) {
         val bathroom = bathrooms[position]
 
         holder.view.bathroomLocationName.text = bathroom.bathroomLocation
@@ -54,9 +55,13 @@ class BathroomsAdapter(val bathrooms: List<Bathroom>): RecyclerView.Adapter<Bath
             holder.view.bathroomFamily.setImageResource(R.drawable.family_off)
         }
 
+        holder.view.setOnClickListener{
+            Toast.makeText(holder.view.context, bathroom.bathroomLocation, Toast.LENGTH_SHORT).show()
+        }
+
 
     }
 
-    class ReviewViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    class BathroomViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
 }
