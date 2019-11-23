@@ -126,25 +126,25 @@ class LoginActivity : AppCompatActivity() {
 //        }
     }
 
-    private fun firebaseAuthWithGoogle(account : GoogleSignInAccount?){
-        var credential = GoogleAuthProvider.getCredential(account?.idToken,null)
-        auth?.signInWithCredential(credential)
-            ?.addOnCompleteListener {
-                    task ->
-                if(task.isSuccessful){
-                    // Check if user logged in
-                    if(task.result?.user != null){
-                        sign_in_button.visibility = View.GONE
-                        val intent = Intent(this,MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }else{
-                    // error message
-                    Toast.makeText(this,task.exception?.message,Toast.LENGTH_LONG).show()
-                }
-            }
-    }
+//    private fun firebaseAuthWithGoogle(account : GoogleSignInAccount?){
+//        var credential = GoogleAuthProvider.getCredential(account?.idToken,null)
+//        auth?.signInWithCredential(credential)
+//            ?.addOnCompleteListener {
+//                    task ->
+//                if(task.isSuccessful){
+//                    // Check if user logged in
+//                    if(task.result?.user != null){
+//                        sign_in_button.visibility = View.GONE
+//                        val intent = Intent(this,MainActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    }
+//                }else{
+//                    // error message
+//                    Toast.makeText(this,task.exception?.message,Toast.LENGTH_LONG).show()
+//                }
+//            }
+//    }
 
     private fun showSignInOptions(){
         startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()

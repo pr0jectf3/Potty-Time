@@ -31,7 +31,7 @@ class EditFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
-        R.id.edit -> {
+        R.id.save -> {
             replaceFragment(DashboardFragment())
             true
         }
