@@ -16,6 +16,7 @@ import com.example.pottytime.ui.home.HomeFragment
 import com.example.pottytime.ui.loginPage.LoginActivity
 import com.example.pottytime.ui.loginPage.LogoutFragment
 import com.example.pottytime.ui.notifications.NotificationsFragment
+import com.example.pottytime.ui.review.ReviewFragment
 import com.firebase.ui.auth.IdpResponse
 import com.google.android.gms.common.util.CollectionUtils.setOf
 import com.google.firebase.auth.FirebaseAuth
@@ -77,10 +78,10 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(LogoutFragment())
                 return@OnNavigationItemSelectedListener true
             }
-//            R.id.navigation_notifications -> {
-//                replaceFragment(IVANREVIEWFragment())
-//                return@OnNavigationItemSelectedListener true
-//            }
+            R.id.navigation_review -> {
+                replaceFragment(ReviewFragment())
+                return@OnNavigationItemSelectedListener true
+            }
         }
         false
     }

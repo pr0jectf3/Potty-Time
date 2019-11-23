@@ -36,5 +36,10 @@
             app:destination="@id/navigation_dashboard"
             app:popUpTo="@+id/navigation_dashboard" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_reviews"
+        android:name="com.example.pottytime.navigation_reviews"
+        android:label="fragment_reviews"
+        tools:layout="@layout/fragment_reviews" />
 
 </navigation>
