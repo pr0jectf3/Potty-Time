@@ -21,7 +21,21 @@ class ReviewsAdapter(val reviews: List<Reviews>): RecyclerView.Adapter<ReviewsAd
         val review = reviews[position]
 
         holder.view.reviewLocationName.text = review.reviewLocation
-        holder.view.reviewReview.text = review.reviewReview
+        holder.view.reviewFloor.text = review.reviewFloor
+        holder.view.reviewId.text = review.id.toString()
+
+        var j = review.reviewFloor.toInt() % 10
+        var k = review.reviewFloor.toInt() % 100
+
+        if (j == 1 && k != 11)
+            holder.view.reviewFloorTitle.text = "st"
+        else if (j == 2 && k != 12)
+            holder.view.reviewFloorTitle.text = "nd"
+        else if (j == 3 && k != 13)
+            holder.view.reviewFloorTitle.text = "rd"
+        else
+            holder.view.reviewFloorTitle.text = "th"
+
 
     }
 
