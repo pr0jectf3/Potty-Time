@@ -14,6 +14,7 @@
     <string name="emailAddress">test@gmail.com</string>
     <string name="title_map">Map</string>
 
+    <string name="bathroomNavigation">List</string>
     <string name="locationName">Location Name</string>
     <string name="reviewFloor">1</string>
     <string name="reviewFloorSub">st</string>
