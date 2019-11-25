@@ -76,7 +76,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/gender"
         android:layout_width="0dp"
         android:layout_height="69dp"
         android:background="@color/sandishBrown"
@@ -86,14 +86,14 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:inputType="none"
-        android:text="@string/phoneNumber"
+        android:text="@string/gender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastName"
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/emailAddress"
         android:layout_width="0dp"
         android:layout_height="69dp"
         android:background="@color/lightBrown"
@@ -106,7 +106,7 @@
         android:text="@string/emailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
+        app:layout_constraintTop_toBottomOf="@+id/gender"
         android:autofillHints="" />
 
 
@@ -122,7 +122,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
