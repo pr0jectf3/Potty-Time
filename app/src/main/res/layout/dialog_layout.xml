@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button19"
+        android:id="@+id/resetButton"
         android:layout_width="290dp"
         android:layout_height="38dp"
         android:layout_marginTop="48dp"
@@ -133,7 +133,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button19" />
+        app:layout_constraintTop_toBottomOf="@+id/resetButton" />
 
     <Switch
         android:id="@+id/mapSwitch"
