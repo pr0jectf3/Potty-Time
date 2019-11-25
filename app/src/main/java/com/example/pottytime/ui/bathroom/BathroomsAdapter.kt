@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pottytime.R
+import com.example.pottytime.ui.bathroom.reviews.RecyclerViewClickListener
 import kotlinx.android.synthetic.main.bathroom_card.view.*
 
-class BathroomsAdapter(val bathrooms: List<Bathroom>): RecyclerView.Adapter<BathroomsAdapter.BathroomViewHolder>(){
+class BathroomsAdapter(val bathrooms: List<Bathroom>, private val listiner: RecyclerViewClickListener): RecyclerView.Adapter<BathroomsAdapter.BathroomViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BathroomViewHolder {
         return BathroomViewHolder(
@@ -56,7 +57,8 @@ class BathroomsAdapter(val bathrooms: List<Bathroom>): RecyclerView.Adapter<Bath
         }
 
         holder.view.setOnClickListener{
-            Toast.makeText(holder.view.context, bathroom.bathroomLocation, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(holder.view.context, bathroom.bathroomLocation, Toast.LENGTH_SHORT).show()
+            listiner.onRecyclerViewItemClick(bathroom.bathRoomId, bathroom.bathroomLocation, bathroom.bathroomFloor, bathroom.bathroomGender, bathroom.bathroomIsFamily, bathroom.bathroomIsHandicap, bathroom.bathroomNearbyClassRoom)
         }
 
 

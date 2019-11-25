@@ -7,5 +7,6 @@ data class Bathroom (
     val bathroomGender: String,
     val bathroomIsFamily: Boolean,
     val bathroomIsHandicap: Boolean,
-    val bathroomNearbyClassRoom: String
+    val bathroomNearbyClassRoom: String,
+    val bathRoomId: String
 )
