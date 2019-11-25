@@ -17,20 +17,27 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.example.pottytime.R
 import com.example.pottytime.ui.loginPage.LoginActivity
+import com.example.pottytime.ui.models.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.android.synthetic.main.fragment_dashboard.view.btn_sign_out_temp
 import kotlinx.android.synthetic.main.fragment_logout.view.*
 
 class DashboardFragment : Fragment() {
-    var uid : String? = null
+    //var uid : String? = null
     var auth : FirebaseAuth? = null
     var currentUserUid : String? = null
     var fbAuth = FirebaseAuth.getInstance()
 
     var checkIfUserLogOut : Boolean = false
     private lateinit var dashboardViewModel: DashboardViewModel
+
+    companion object {
+        var user: User? = null
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,11 +48,33 @@ class DashboardFragment : Fragment() {
         dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-        uid = arguments?.getString("destinationUid")
         auth = FirebaseAuth.getInstance()
 
         currentUserUid = auth?.currentUser?.uid
 
+        // Set the email for the user
+//        val userEmail = FirebaseAuth.getInstance().currentUser!!.email
+//        root.emailAddress.setText(userEmail);
+
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+
+        ref.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                user = p0.getValue(User::class.java)
+                root.emailAddress.setText(user?.email)
+
+                root.gender.setText(user?.gender)
+
+                root.firstName.setText(user?.firstName)
+
+                root.lastName.setText(user?.lastName)
+            }
+        })
 
         root.btn_sign_out_temp.setOnClickListener {
             activity?.finish()
@@ -61,6 +90,7 @@ class DashboardFragment : Fragment() {
         setHasOptionsMenu(true)
         return root
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)

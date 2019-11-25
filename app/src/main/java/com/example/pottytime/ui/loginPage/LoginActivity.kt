@@ -4,23 +4,22 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.pottytime.MainActivity
 import com.example.pottytime.R
+import com.example.pottytime.ui.models.User
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
-import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : AppCompatActivity() {
     lateinit var providers : List<AuthUI.IdpConfig>
@@ -106,12 +105,12 @@ class LoginActivity : AppCompatActivity() {
                 //btn_sign_out.isEnabled = true
                 //btn_sign_out.visibility = View.VISIBLE
 
+                saveUserToFirebaseDataBase()
+
                 // This is to switch to main scence
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
                 finish()
-            }else {
-                Toast.makeText(this,""+response!!.error!!.message,Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -152,4 +151,44 @@ class LoginActivity : AppCompatActivity() {
             .setTheme(R.style.LogInTheme)
             .build(),MY_REQUEST_CODE)
     }
+
+    private fun saveUserToFirebaseDataBase(){
+        val userEmail = FirebaseAuth.getInstance().currentUser!!.email ?: ""
+        val uid = FirebaseAuth.getInstance().uid ?: ""
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        val refHome = FirebaseDatabase.getInstance().getReference()
+
+        val user = User(uid, "", "", userEmail, "")
+
+        val userListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for(data in dataSnapshot.children){
+                    if(data.child(uid).exists()){
+
+                    } else {
+                        ref.setValue(user)
+                            .addOnSuccessListener {
+                                Log.d("LoginActivity", "Saved user to firebase database")
+                            }
+                    }
+                }
+
+                // User first time signing in
+                if(!dataSnapshot.exists()){
+                    ref.setValue(user)
+                        .addOnSuccessListener {
+                            Log.d("LoginActivity", "Saved user to firebase database")
+                        }
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                println("loadPost:onCancelled ${databaseError.toException()}")
+            }
+        }
+
+        refHome.addListenerForSingleValueEvent(userListener)
+    }
+
 }
+

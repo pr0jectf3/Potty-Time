@@ -64,10 +64,10 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(NotificationsFragment())
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_logout -> {
-                replaceFragment(LogoutFragment())
-                return@OnNavigationItemSelectedListener true
-            }
+//            R.id.navigation_logout -> {
+//                replaceFragment(LogoutFragment())
+//                return@OnNavigationItemSelectedListener true
+//            }
             R.id.navigation_bathrooms -> {
                 replaceFragment(BathroomsFragment())
                 return@OnNavigationItemSelectedListener true
