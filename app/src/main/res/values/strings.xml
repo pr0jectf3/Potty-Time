@@ -16,10 +16,22 @@
 
     <string name="bathroomNavigation">List</string>
     <string name="locationName">Location Name</string>
+    <string name="bathroomFloor">1</string>
+    <string name="bathroomFloorSub">st</string>
+    <string name="bathroomFloorFloor">Floor</string>
+    <string name="bathroomId">1</string>
+    <string name="dot">.</string>
+
+    <string name="reviewBathroomID">0</string>
+    <string name="reviewLocation">King Hall</string>
     <string name="reviewFloor">1</string>
     <string name="reviewFloorSub">st</string>
     <string name="reviewFloorFloor">Floor</string>
     <string name="reviewId">1</string>
-    <string name="dot">.</string>
+
+    <string name="reviewCardDate">2019-11-18</string>
+    <string name="reviewCardRating">3.5</string>
+    <string name="reviewOutOf">/5</string>
+    <string name="reviewCardReview">Review</string>
 
 </resources>
