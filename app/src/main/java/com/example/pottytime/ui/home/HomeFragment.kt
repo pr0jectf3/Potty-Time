@@ -120,6 +120,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         if(isFamily) rootView.familyButton.setImageResource(R.drawable.family_on) else rootView.familyButton.setImageResource(R.drawable.family_off)
         if(isHandicap) rootView.handicapButton.setImageResource(R.drawable.handicap_on) else rootView.handicapButton.setImageResource(R.drawable.handicap_off)
         if(isNeutral) rootView.neutralButton.setImageResource(R.drawable.neutral_on) else rootView.neutralButton.setImageResource(R.drawable.neutral_off)
+        if(isSatellite) rootView.mapSwitch.isChecked = false else rootView.mapSwitch.isChecked = true
     }
 
     private fun setButtonPreferences(rootView: View){
@@ -159,6 +160,23 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             onMapReady(mMap)
         }
 
+        rootView.resetButton.setOnClickListener {
+            isMen = true
+            isWomen = true
+            isFamily = true
+            isSatellite = true
+            isHandicap = true
+            isNeutral = true
+            rootView.menButton.setImageResource(R.drawable.male_on)
+            rootView.womenButton.setImageResource(R.drawable.female_on)
+            rootView.familyButton.setImageResource(R.drawable.family_on)
+            rootView.handicapButton.setImageResource(R.drawable.handicap_on)
+            rootView.neutralButton.setImageResource(R.drawable.neutral_on)
+            rootView.mapSwitch.isChecked = false
+            mMap.clear()
+            onMapReady(mMap)
+        }
+
     }
 
     private fun addMapMarkers(){
@@ -168,11 +186,13 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 for(document in result){
                     val lat = document.data.get("lat").toString().toDouble()
                     val lon = document.data.get("lon").toString().toDouble()
+                    val building = document.get("building").toString()
+                    val floor = document.get("floor").toString()
                     val coord = LatLng(lat,lon)
 //                    val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
 //                    marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilet_map))
 //                    mMap.addMarker(marker)
-                    mMap.addMarker(MarkerOptions().position(coord).title("bathroom").snippet("sadfasdfasdfsan "))
+                    mMap.addMarker(MarkerOptions().position(coord).title(building).snippet("Floor: " + floor))
                 }
             }
         }
