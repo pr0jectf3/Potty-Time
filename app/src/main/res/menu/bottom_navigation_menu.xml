@@ -21,8 +21,8 @@
         android:title="Logout" />
 
     <item
-        android:id="@+id/navigation_review"
+        android:id="@+id/navigation_bathrooms"
         android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Review" />
+        android:title="List" />
 
 </menu>

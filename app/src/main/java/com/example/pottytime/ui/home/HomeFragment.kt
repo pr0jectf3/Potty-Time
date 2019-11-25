@@ -84,22 +84,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         val schoolBounds = LatLngBounds(LatLng(34.061334,-118.174004),
             LatLng(34.071732,-118.162157)
         )
-
-        val queryList:MutableList<Query> = filterDB()
-        for(query in queryList){
-            query.get().addOnSuccessListener { result ->
-                for(document in result){
-                    val lat = document.data.get("lat").toString().toDouble()
-                    val lon = document.data.get("lon").toString().toDouble()
-                    val coord = LatLng(lat,lon)
-//                    val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
-//                    marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilet_map))
-//                    mMap.addMarker(marker)
-                    mMap.addMarker(MarkerOptions().position(coord).title("bathroom"))
-                }
-            }
-        }
-
+        addMapMarkers()
         mMap.setLatLngBoundsForCameraTarget(schoolBounds)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolBounds.center,20.0f))
         mMap.setMinZoomPreference(16.0f)
@@ -135,6 +120,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         if(isFamily) rootView.familyButton.setImageResource(R.drawable.family_on) else rootView.familyButton.setImageResource(R.drawable.family_off)
         if(isHandicap) rootView.handicapButton.setImageResource(R.drawable.handicap_on) else rootView.handicapButton.setImageResource(R.drawable.handicap_off)
         if(isNeutral) rootView.neutralButton.setImageResource(R.drawable.neutral_on) else rootView.neutralButton.setImageResource(R.drawable.neutral_off)
+        if(isSatellite) rootView.mapSwitch.isChecked = false else rootView.mapSwitch.isChecked = true
     }
 
     private fun setButtonPreferences(rootView: View){
@@ -142,33 +128,74 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         rootView.menButton.setOnClickListener{
             if(isMen) rootView.menButton.setImageResource(R.drawable.male_off) else rootView.menButton.setImageResource(R.drawable.male_on)
             isMen = !isMen
-            onMapReady(mMap)
+            mMap.clear()
+            addMapMarkers()
         }
         rootView.womenButton.setOnClickListener{
             if(isWomen) rootView.womenButton.setImageResource(R.drawable.female_off) else rootView.womenButton.setImageResource(R.drawable.female_on)
             isWomen = !isWomen
-            onMapReady(mMap)
+            mMap.clear()
+            addMapMarkers()
         }
         rootView.familyButton.setOnClickListener{
             if(isFamily) rootView.familyButton.setImageResource(R.drawable.family_off) else rootView.familyButton.setImageResource(R.drawable.family_on)
             isFamily = !isFamily
-            onMapReady(mMap)
+            mMap.clear()
+            addMapMarkers()
         }
         rootView.handicapButton.setOnClickListener{
             if(isHandicap) rootView.handicapButton.setImageResource(R.drawable.handicap_off) else rootView.handicapButton.setImageResource(R.drawable.handicap_on)
             isHandicap = !isHandicap
-            onMapReady(mMap)
+            mMap.clear()
+            addMapMarkers()
         }
         rootView.neutralButton.setOnClickListener{
             if(isNeutral) rootView.neutralButton.setImageResource(R.drawable.neutral_off) else rootView.neutralButton.setImageResource(R.drawable.neutral_on)
             isNeutral = !isNeutral
-            onMapReady(mMap)
+            mMap.clear()
+            addMapMarkers()
         }
         rootView.mapSwitch.setOnCheckedChangeListener{buttonView, isChecked ->
             if(isChecked) isSatellite = false else isSatellite = !isSatellite
             onMapReady(mMap)
         }
 
+        rootView.resetButton.setOnClickListener {
+            isMen = true
+            isWomen = true
+            isFamily = true
+            isSatellite = true
+            isHandicap = true
+            isNeutral = true
+            rootView.menButton.setImageResource(R.drawable.male_on)
+            rootView.womenButton.setImageResource(R.drawable.female_on)
+            rootView.familyButton.setImageResource(R.drawable.family_on)
+            rootView.handicapButton.setImageResource(R.drawable.handicap_on)
+            rootView.neutralButton.setImageResource(R.drawable.neutral_on)
+            rootView.mapSwitch.isChecked = false
+            mMap.clear()
+            onMapReady(mMap)
+        }
+
+    }
+
+    private fun addMapMarkers(){
+        val queryList:MutableList<Query> = filterDB()
+        for(query in queryList){
+            query.get().addOnSuccessListener { result ->
+                for(document in result){
+                    val lat = document.data.get("lat").toString().toDouble()
+                    val lon = document.data.get("lon").toString().toDouble()
+                    val building = document.get("building").toString()
+                    val floor = document.get("floor").toString()
+                    val coord = LatLng(lat,lon)
+//                    val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
+//                    marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilet_map))
+//                    mMap.addMarker(marker)
+                    mMap.addMarker(MarkerOptions().position(coord).title(building).snippet("Floor: " + floor))
+                }
+            }
+        }
     }
 
 }
