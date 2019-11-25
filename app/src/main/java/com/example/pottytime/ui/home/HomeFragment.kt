@@ -172,7 +172,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 //                    val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
 //                    marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilet_map))
 //                    mMap.addMarker(marker)
-                    mMap.addMarker(MarkerOptions().position(coord).title("bathroom").snippet("sadfasdfasdfsa"))
+                    mMap.addMarker(MarkerOptions().position(coord).title("bathroom").snippet("sadfasdfasdfsan "))
                 }
             }
         }
