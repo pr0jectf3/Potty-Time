@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#041230">
 
     <TextView
         android:id="@+id/textView6"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
         android:text="Neutral"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/neutralButton" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
         android:text="Handicap"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/handicapButton" />
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:text="Family"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/familyButton" />
 
@@ -57,7 +57,7 @@
         android:layout_marginTop="32dp"
         android:text="P r e f e r e n c e s"
         android:textAllCaps="false"
-        android:textColor="#000000"
+        android:textColor="#FFFEFE"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,6 +118,7 @@
         android:layout_marginTop="48dp"
         android:background="@drawable/button_round"
         android:text="Reset"
+        android:textColor="#FDFDFD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Map"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,6 +142,7 @@
         android:layout_height="27dp"
         android:layout_marginTop="12dp"
         android:text="Satellite / Normal"
+        android:textColor="#FAFAFA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:text="Men"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menButton" />
 
@@ -173,7 +175,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="94dp"
         android:text="Women"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/womenButton" />
 

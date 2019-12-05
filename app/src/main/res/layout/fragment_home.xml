@@ -23,12 +23,13 @@
         android:layout_height="59dp"
         android:layout_marginBottom="96dp"
         android:clickable="true"
-        app:backgroundTint="#000000"
+        app:backgroundTint="#040E30"
+        app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
-        app:maxImageSize="50dp"
+        app:maxImageSize="45dp"
         app:srcCompat="@drawable/cog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
