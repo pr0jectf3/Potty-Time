@@ -21,12 +21,6 @@ import androidx.annotation.NonNull
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.common.api.GoogleApiClient
-
-
-
-
-
 
 
 /**
@@ -40,7 +34,7 @@ class LogoutFragment : Fragment() {
 
     var checkIfUserLogOut : Boolean = false
 
-    private var mGoogleSignInClient = null
+    //private var mGoogleSignInClient = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
