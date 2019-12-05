@@ -41,7 +41,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private var isWomen: Boolean = true
     private var isFamily: Boolean = true
     private var isHandicap: Boolean = true
-    private var isSatellite: Boolean = true
+    private var isSatellite: Boolean = false
 
     val db = FirebaseFirestore.getInstance()
 
@@ -86,7 +86,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         )
         addMapMarkers()
         mMap.setLatLngBoundsForCameraTarget(schoolBounds)
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolBounds.center,20.0f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolBounds.center,17.0f))
         mMap.setMinZoomPreference(16.0f)
         setUpMap()
 
@@ -120,7 +120,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         if(isFamily) rootView.familyButton.setImageResource(R.drawable.family_on) else rootView.familyButton.setImageResource(R.drawable.family_off)
         if(isHandicap) rootView.handicapButton.setImageResource(R.drawable.handicap_on) else rootView.handicapButton.setImageResource(R.drawable.handicap_off)
         if(isNeutral) rootView.neutralButton.setImageResource(R.drawable.neutral_on) else rootView.neutralButton.setImageResource(R.drawable.neutral_off)
-        if(isSatellite) rootView.mapSwitch.isChecked = false else rootView.mapSwitch.isChecked = true
+        if(isSatellite) rootView.mapSwitch.isChecked = true else rootView.mapSwitch.isChecked = false
     }
 
     private fun setButtonPreferences(rootView: View){
@@ -156,7 +156,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             addMapMarkers()
         }
         rootView.mapSwitch.setOnCheckedChangeListener{buttonView, isChecked ->
-            if(isChecked) isSatellite = false else isSatellite = !isSatellite
+            if(isChecked) isSatellite = true else isSatellite = !isSatellite
             onMapReady(mMap)
         }
 
@@ -164,7 +164,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             isMen = true
             isWomen = true
             isFamily = true
-            isSatellite = true
+            isSatellite = false
             isHandicap = true
             isNeutral = true
             rootView.menButton.setImageResource(R.drawable.male_on)
@@ -189,10 +189,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                     val building = document.get("building").toString()
                     val floor = document.get("floor").toString()
                     val coord = LatLng(lat,lon)
-//                    val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
-//                    marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilet_map))
-//                    mMap.addMarker(marker)
-                    mMap.addMarker(MarkerOptions().position(coord).title(building).snippet("Floor: " + floor))
+                    val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
+                    marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilets_inclusive))
+                    mMap.addMarker(marker)
+                    //mMap.addMarker(MarkerOptions().position(coord).title(building).snippet("Floor: " + floor))
                 }
             }
         }
