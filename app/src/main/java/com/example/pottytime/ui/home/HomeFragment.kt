@@ -3,6 +3,7 @@ package com.example.pottytime.ui.home
 import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
 import android.location.Location
+import android.location.LocationProvider
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -88,6 +89,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mMap.setLatLngBoundsForCameraTarget(schoolBounds)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(schoolBounds.center,17.0f))
         mMap.setMinZoomPreference(16.0f)
+        mMap.isMyLocationEnabled = true
         setUpMap()
 
     }
