@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "#2143A2">
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="414dp"
-        android:layout_height="200dp"
+        android:layout_width="381dp"
+        android:layout_height="157dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,12 +18,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/orangeBrown">
+            android:background="@color/colorPrimary">
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/circularImageView"
-                android:layout_width="188dp"
-                android:layout_height="197dp"
+                android:layout_width="138dp"
+                android:layout_height="153dp"
                 android:src="@drawable/doggo"
                 app:civ_border_color="#FFFFFF"
                 app:civ_border_width="10dp"
@@ -32,6 +32,7 @@
                 app:civ_shadow_radius="5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -39,55 +40,77 @@
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/orangeBrown"
+        android:layout_width="385dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:background="@drawable/text_border"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         android:text="@string/firstName"
+        app:layout_constraintBottom_toTopOf="@+id/lastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
         android:id="@+id/lastName"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/orangePeach"
+        android:layout_width="385dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:background="@drawable/text_border"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         android:text="@string/lastName"
+        app:layout_constraintBottom_toTopOf="@+id/gender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <EditText
         android:id="@+id/gender"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/sandishBrown"
+        android:layout_width="385dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="24dp"
+        android:autofillHints=""
+        android:background="@drawable/text_border"
         android:ems="10"
-        android:inputType="phone"
+        android:gravity="center"
+        android:inputType="text"
         android:text="@string/gender"
+        app:layout_constraintBottom_toTopOf="@+id/emailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
     <EditText
         android:id="@+id/emailAddress"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/lightBrown"
+        android:layout_width="385dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:autofillHints=""
+        android:background="@drawable/text_border"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textEmailAddress"
         android:text="@string/emailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/gender" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

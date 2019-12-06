@@ -3,10 +3,10 @@
     <color name="colorPrimary">#041230</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="darkBrown">#3333cc</color>
-    <color name="orangeBrown">#3359cc</color>
-    <color name="orangePeach">#3380cc</color>
-    <color name="sandishBrown">#33a6cc</color>
-    <color name="lightBrown">#33cccc</color>
+    <color name="darkBrown">#040E30</color>
+    <color name="orangeBrown">#07133D</color>
+    <color name="orangePeach">#06123D</color>
+    <color name="sandishBrown">#0A194D</color>
+    <color name="lightBrown">#CD0B1B50</color>
     <color name="white">#FFFFFF</color>
 </resources>

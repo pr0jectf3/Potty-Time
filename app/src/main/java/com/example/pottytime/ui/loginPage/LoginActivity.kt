@@ -20,10 +20,13 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class LoginActivity : AppCompatActivity() {
     lateinit var providers : List<AuthUI.IdpConfig>
     private val MY_REQUEST_CODE: Int = 6969 // Any code
+    val db = FirebaseFirestore.getInstance()
     //var googleSignInClient : GoogleSignInClient? = null
     var auth : FirebaseAuth? = null
 
@@ -156,10 +159,17 @@ class LoginActivity : AppCompatActivity() {
         val userEmail = FirebaseAuth.getInstance().currentUser!!.email ?: ""
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+
         val refHome = FirebaseDatabase.getInstance().getReference()
 
         val user = User(uid, "", "", userEmail, "")
-
+        val tempUser = hashMapOf(
+            "uid" to uid,
+            "userID" to 0,
+            "name" to user.firstName,
+            "displayName" to user.lastName,
+            "email" to userEmail
+        )
         val userListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for(data in dataSnapshot.children){
@@ -170,6 +180,7 @@ class LoginActivity : AppCompatActivity() {
                             .addOnSuccessListener {
                                 Log.d("LoginActivity", "Saved user to firebase database")
                             }
+                        db.collection("users").document(uid).set(tempUser)
                     }
                 }
 

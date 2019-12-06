@@ -81,7 +81,7 @@ class DashboardFragment : Fragment() {
             fbAuth.signOut()
             auth?.signOut()
             FirebaseAuth.getInstance().signOut()
-            checkIfUserLogOut = true;
+            checkIfUserLogOut = true
 
             val intent = Intent (activity, LoginActivity::class.java)
             intent.putExtra("checkIfUserLogOut", checkIfUserLogOut)
