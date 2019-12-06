@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "#2143A2"
-    tools:context=".ui.loginPage.LogoutFragment">>
-
+    android:background="@color/colorPrimary"
+    tools:context=".ui.loginPage.LogoutFragment">
 
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="414dp"
-        android:layout_height="200dp"
+        android:layout_width="381dp"
+        android:layout_height="157dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,21 +20,22 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#2143A2">
+            android:layout_height="172dp"
+            android:background="@color/colorPrimary">
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/circularImageView"
-                android:layout_width="188dp"
-                android:layout_height="197dp"
+                android:layout_width="138dp"
+                android:layout_height="153dp"
                 android:src="@drawable/doggo"
-                app:civ_border_color="#FFFFFF"
+                app:civ_border_color="#ff8c00"
                 app:civ_border_width="10dp"
                 app:civ_shadow="true"
-                app:civ_shadow_color="#8BC34A"
+                app:civ_shadow_color="#ff8c00"
                 app:civ_shadow_radius="5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -43,80 +43,107 @@
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/orangeBrown"
-        android:ems="10"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints="@string/firstName"
+        android:background="@drawable/text_border"
         android:clickable="false"
-        android:linksClickable="false"
+        android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:gravity="center"
         android:inputType="none"
+        android:linksClickable="false"
         android:text="@string/firstName"
+        app:layout_constraintBottom_toTopOf="@+id/lastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
         android:id="@+id/lastName"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/orangePeach"
-        android:ems="10"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:background="@drawable/text_border"
         android:clickable="false"
-        android:linksClickable="false"
+        android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:gravity="center"
         android:inputType="none"
+        android:linksClickable="false"
         android:text="@string/lastName"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/gender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <EditText
         android:id="@+id/gender"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/sandishBrown"
-        android:ems="10"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:background="@drawable/text_border"
         android:clickable="false"
-        android:linksClickable="false"
+        android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:gravity="center"
         android:inputType="none"
+        android:linksClickable="false"
         android:text="@string/gender"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/emailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
     <EditText
         android:id="@+id/emailAddress"
-        android:layout_width="0dp"
-        android:layout_height="69dp"
-        android:background="@color/lightBrown"
-        android:ems="10"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="24dp"
+        android:autofillHints=""
+        android:background="@drawable/text_border"
         android:clickable="false"
-        android:linksClickable="false"
+        android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:gravity="center"
         android:inputType="none"
+        android:linksClickable="false"
         android:text="@string/emailAddress"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sign_out_temp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/gender" />
 
 
     <Button
         android:id="@+id/btn_sign_out_temp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
 
         android:text="Sign Out"
         app:layout_constraintEnd_toEndOf="parent"

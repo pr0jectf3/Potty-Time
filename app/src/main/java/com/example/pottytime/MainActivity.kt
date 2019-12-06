@@ -11,6 +11,8 @@ import com.example.pottytime.ui.notifications.NotificationsFragment
 import com.example.pottytime.ui.bathroom.BathroomsFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 
 
