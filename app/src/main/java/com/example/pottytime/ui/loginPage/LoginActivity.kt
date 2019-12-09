@@ -163,13 +163,19 @@ class LoginActivity : AppCompatActivity() {
         val refHome = FirebaseDatabase.getInstance().getReference()
 
         val user = User(uid, "", "", userEmail, "")
+
+        val userID = getUserID(userEmail)
+
         val tempUser = hashMapOf(
             "uid" to uid,
-            "userID" to 0,
-            "name" to user.firstName,
-            "displayName" to user.lastName,
+            "userID" to userID,
+            "firstName" to user.firstName,
+            "lastName" to user.lastName,
+            "gender" to user.gender,
+            "displayName" to user.firstName,
             "email" to userEmail
         )
+
         val userListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for(data in dataSnapshot.children){
@@ -200,6 +206,26 @@ class LoginActivity : AppCompatActivity() {
 
         refHome.addListenerForSingleValueEvent(userListener)
     }
+
+    // To get the userID, making our accounts from 1-5
+    private fun getUserID(userEmail : String) : Int {
+        if(userEmail == "michaelkourandom@gmail.com"){
+            return 1;
+        } else if (userEmail == "pasindu2siri@gmail.com"){
+            return 2;
+        } else if (userEmail == "vanitysubscribers@gmail.com"){
+            return 3;
+        } else if (userEmail == "ivanyu626@gmail.com" || userEmail == "ivanscreativity@gmail.com"){
+            return 4;
+        } else if (userEmail == "carloslariossolis@gmail.com"){
+            return 5;
+        } else {
+            return 0;
+        }
+
+    }
+
+
 
 }
 
