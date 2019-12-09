@@ -1,4 +1,7 @@
 # Potty-Time :toilet:
+
+> Gotta GO!
+
 - Carlos Larios-Solis
 - Chan In Kou
 - Ivan Yu
@@ -6,23 +9,37 @@
 - Zachary Portillo
 
 ## Why
+
 Often we want to use a restroom when we are out, but how do we find one we know
 is most often clean? How do we even know where the nearest restroom is?
 
-## Challenges
+We set out to build a solution for the CSULA Staff and Student Body.
 
-# What You Can Do
+## Challenges :warning:
+
+Like all software teams, we also ran into hiccups
+- Collecting Data
+- Merge conflicts
+
+# Lets Take a Look! :iphone:
+![Image of App in Phone](https://octodex.github.com/images/yaktocat.png)
 
 ## Login Screen
 
 - Implements Google Firebase for authentication
 
+![Screenshot of Login Page](https://octodex.github.com/images/yaktocat.png)
+
 ## Finding a Toilet
+
+![Screenshot of Home Screen](https://octodex.github.com/images/yaktocat.png)
 
 - Data is from Firebase' Firestore
   - noSQL
 
 ## Leaving a Review
+
+![Screenshot of Writing a Review](https://octodex.github.com/images/yaktocat.png)
 
 - Users can leave a review on restrooms
   - Can aid other users in their decision
