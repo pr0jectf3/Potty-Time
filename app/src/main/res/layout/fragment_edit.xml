@@ -39,7 +39,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/firstName"
+        android:id="@+id/editFirstName"
         android:layout_width="385dp"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
@@ -52,13 +52,13 @@
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="@string/firstName"
-        app:layout_constraintBottom_toTopOf="@+id/lastName"
+        app:layout_constraintBottom_toTopOf="@+id/editLastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/editLastName"
         android:layout_width="385dp"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
@@ -71,13 +71,13 @@
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="@string/lastName"
-        app:layout_constraintBottom_toTopOf="@+id/gender"
+        app:layout_constraintBottom_toTopOf="@+id/editGender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName" />
+        app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
 
     <EditText
-        android:id="@+id/gender"
+        android:id="@+id/editGender"
         android:layout_width="385dp"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
@@ -90,13 +90,13 @@
         android:gravity="center"
         android:inputType="text"
         android:text="@string/gender"
-        app:layout_constraintBottom_toTopOf="@+id/emailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/editDisplayName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName" />
+        app:layout_constraintTop_toBottomOf="@+id/editLastName" />
 
     <EditText
-        android:id="@+id/emailAddress"
+        android:id="@+id/editDisplayName"
         android:layout_width="385dp"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
@@ -110,7 +110,7 @@
         android:text="@string/emailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender" />
+        app:layout_constraintTop_toBottomOf="@+id/editGender" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
