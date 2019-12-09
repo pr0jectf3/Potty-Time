@@ -4,15 +4,34 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--- Test listview -->
-    <array name="toilet_list" >
-        <item>Salazar Hall</item>
-        <item>King Hall</item>
-        <item>Biological Sciences</item>
-        <item>Annenberg Science Complex</item>
-    </array>
+    <string name="edit">edit</string>
+    <string name="firstName">Enter first name</string>
+    <string name="lastName">Enter last name</string>
+    <string name="gender">Enter gender</string>
+    <string name="emailAddress">test@gmail.com</string>
+    <string name="title_map">Map</string>
+
+    <string name="bathroomNavigation">List</string>
+    <string name="locationName">Location Name</string>
+    <string name="bathroomFloor">1</string>
+    <string name="bathroomFloorSub">st</string>
+    <string name="bathroomFloorFloor">Floor</string>
+    <string name="bathroomId">1</string>
+    <string name="dot">.</string>
+
+    <string name="reviewBathroomID">0</string>
+    <string name="reviewLocation">King Hall</string>
+    <string name="reviewFloor">1</string>
+    <string name="reviewFloorSub">st</string>
+    <string name="reviewFloorFloor">Floor</string>
+    <string name="reviewId">1</string>
+
+    <string name="reviewCardDate">2019-11-18</string>
+    <string name="reviewCardRating">3.5</string>
+    <string name="reviewOutOf">/5</string>
+    <string name="reviewCardReview">Review</string>
 
 </resources>

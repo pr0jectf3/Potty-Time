@@ -12,6 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
+*.json
 
 # Android Studio / IntelliJ IDEA 
 *.iws
@@ -19,3 +20,5 @@
 .idea/tasks.xml
 .idea/vcs.xml
 .idea/workspace.xml
+/.idea/
+*.json
