@@ -32,16 +32,23 @@ Like all software teams, we also ran into hiccups
 
 ## Finding a Toilet
 
-![Screenshot of Home Screen](https://octodex.github.com/images/yaktocat.png)
-
 - Data is from Firebase' Firestore
-  - noSQL
+- noSQL
+
+![Screenshot of Home Screen](https://octodex.github.com/images/yaktocat.png)
 
 ## Leaving a Review
 
+- Users can leave a review on restrooms
+- Can aid other users in their decision
+
 ![Screenshot of Writing a Review](https://octodex.github.com/images/yaktocat.png)
 
-- Users can leave a review on restrooms
-  - Can aid other users in their decision
 
-## Conclusion
+## User Profile
+
+![Screenshot of Writing a Review](https://octodex.github.com/images/yaktocat.png)
+
+## Video Demo
+
+# Conclusion
