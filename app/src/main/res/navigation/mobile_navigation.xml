@@ -24,9 +24,8 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.pottytime.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_search"
         tools:layout="@layout/fragment_notifications" />
-    ++
     <fragment
         android:id="@+id/editFragment"
         android:name="com.example.pottytime.ui.dashboard.EditFragment"
@@ -38,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_bathrooms"
-        android:name="com.example.pottytime.navigation_reviews"
+        android:name="com.example.pottytime.ui.bathroom.BathroomsFragment"
         android:label="fragment_bathrooms"
         tools:layout="@layout/fragment_bathrooms" />
     <fragment
