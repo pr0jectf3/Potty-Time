@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.pottytime.ui.notifications.NotificationsFragment"
+        android:name="com.example.pottytime.ui.notifications.SearchUserFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_notifications" />
     <fragment
