@@ -54,11 +54,12 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:text="@string/reviewFloorFloor" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -81,9 +82,21 @@
             android:id="@+id/bathroomHandicap"
             android:layout_width="45dp"
             android:layout_height="75dp"
+            android:layout_marginRight="200dp"
             android:layout_weight="1"
             android:contentDescription="handicap"
             app:srcCompat="@drawable/handicap_off" />
+
+        <Button
+            android:id="@+id/addReview"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/icons8_plus_64"
+            android:scaleX=".75"
+            android:scaleY=".75" />
 
     </LinearLayout>
 
@@ -92,11 +105,10 @@
         android:id="@+id/recyclerViewReview2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/review_card"
-        android:paddingBottom="56dp"/>
+        android:layout_margin="5dp"
+        android:paddingBottom="56dp"
+        tools:listitem="@layout/review_card" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
