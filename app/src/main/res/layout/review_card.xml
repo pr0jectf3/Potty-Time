@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="15dp"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/colorAccent"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/relative_layout_background"
-        android:orientation="vertical">
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/reviewCardDate"
@@ -16,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/reviewCardDate" />
+            android:text="@string/reviewCardDate"
+            android:textColor="@color/white" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -28,13 +36,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:text="@string/reviewCardRating" />
+                android:text="@string/reviewCardRating"
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/reviewCardOutOf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/reviewOutOf" />
+                android:text="@string/reviewOutOf"
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
@@ -44,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_weight="1"
-            android:text="@string/reviewCardReview" />
+            android:text="@string/reviewCardReview"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
