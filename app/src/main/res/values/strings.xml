@@ -34,4 +34,6 @@
     <string name="reviewOutOf">/5</string>
     <string name="reviewCardReview">Review</string>
 
+    <string name="plus_sign">+</string>
+
 </resources>
