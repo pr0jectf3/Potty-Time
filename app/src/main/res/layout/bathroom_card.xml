@@ -5,14 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
+    android:layout_marginTop="20dp"
+    app:cardBackgroundColor="@android:color/holo_orange_dark"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="10dp"
     android:clickable="true">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/relative_layout_background">
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -25,7 +31,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:text="@string/bathroomId" />
+                android:text="@string/bathroomId"
+                android:textColor="#F5F2F2" />
 
             <TextView
                 android:id="@+id/dot"
@@ -33,6 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/dot"
+                android:textColor="#F7F7F7"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -48,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="@string/locationName"
-                    android:textColor="#000000"
+                    android:textColor="#F8F5F5"
                     android:textColorHighlight="#00FFFFFF"
                     android:textSize="24sp" />
 
@@ -63,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:text="@string/bathroomFloor"
-                        android:textColor="#000000"
+                        android:textColor="@color/colorAccent"
                         android:textSize="14sp" />
 
                     <TextView
@@ -72,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/bathroomFloorSub"
-                        android:textColor="#000000"
+                        android:textColor="@color/colorAccent"
                         android:textSize="14sp" />
 
                     <TextView
@@ -82,7 +90,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:text="@string/bathroomFloorFloor"
-                        android:textColor="#000000" />
+                        android:textColor="@color/colorAccent" />
 
                 </LinearLayout>
 
@@ -123,3 +131,27 @@
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+
+<!--<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/card_view_outer"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="200dp"-->
+<!--    android:layout_gravity="center"-->
+<!--    android:layout_margin="25dp"-->
+<!--    card_view:cardBackgroundColor="@android:color/holo_orange_dark"-->
+<!--    card_view:cardCornerRadius="100dp"-->
+<!--    card_view:cardElevation="10dp">-->
+<!--    -->
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:layout_conversion_absoluteHeight="0dp"-->
+<!--        tools:layout_conversion_absoluteWidth="0dp"-->
+<!--        tools:layout_editor_absoluteX="0dp"-->
+<!--        tools:layout_editor_absoluteY="0dp">-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    -->
+<!--</android.support.v7.widget.CardView>-->
