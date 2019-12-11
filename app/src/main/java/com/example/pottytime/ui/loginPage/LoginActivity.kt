@@ -34,6 +34,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         var checkIfUserLogOut = intent.getBooleanExtra("checkIfUserLogOut", false)
+
+        supportActionBar?.hide();
+
         auth = FirebaseAuth.getInstance()
 
         providers = Arrays.asList<AuthUI.IdpConfig>(

@@ -26,15 +26,7 @@ class SearchUserFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_search_user, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
 
-        toiletListView = root.findViewById(R.id.toilet_list)
-        val toiletArray = arrayOf("Salazar Hall", "King Hall", "ECST")
-        toiletListView.adapter = ArrayAdapter<String>(root.context, android.R.layout.simple_expandable_list_item_1, toiletArray)
-
-        toiletListView.setOnItemClickListener { adapterView, view, i, l ->
-            Toast.makeText(root.context, "tapped", Toast.LENGTH_SHORT)
-        }
 
         return root
     }
@@ -51,6 +43,6 @@ class SearchUserFragment : Fragment() {
         activity?.run {
             searchUserViewModel = ViewModelProviders.of(this).get(SearchUserViewModel::class.java)
         } ?: throw Throwable("Can't not change title")
-        searchUserViewModel.changeActionBarTitle("Search for user");
+        searchUserViewModel.changeActionBarTitle("Search for a user");
     }
 }
