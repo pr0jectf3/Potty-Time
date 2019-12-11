@@ -6,16 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.pottytime.ui.dashboard.DashboardFragment
 import com.example.pottytime.ui.home.HomeFragment
-import com.example.pottytime.ui.loginPage.LogoutFragment
-import com.example.pottytime.ui.notifications.NotificationsFragment
+import com.example.pottytime.ui.notifications.SearchUserFragment
 import com.example.pottytime.ui.bathroom.BathroomsFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -63,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                replaceFragment(NotificationsFragment())
+                replaceFragment(SearchUserFragment())
                 return@OnNavigationItemSelectedListener true
             }
 //            R.id.navigation_logout -> {

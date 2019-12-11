@@ -134,6 +134,12 @@ class DashboardFragment : Fragment() {
         fragmentTransaction.commit()
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Profile"
+    }
+
 
 
 }
