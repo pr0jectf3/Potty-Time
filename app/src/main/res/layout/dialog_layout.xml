@@ -141,7 +141,7 @@
         android:layout_width="307dp"
         android:layout_height="27dp"
         android:layout_marginTop="12dp"
-        android:text="Satellite / Normal"
+        android:text="Default / Satellite"
         android:textColor="#FAFAFA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
