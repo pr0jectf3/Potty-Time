@@ -46,7 +46,7 @@ class BathroomsFragment : Fragment(), RecyclerViewClickListener {
 
         var bathrooms = listOf<Bathroom>()
 
-        val docRef = db.collection("bathrooms")
+        val docRef = db.collection("bathrooms").orderBy("building")
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
