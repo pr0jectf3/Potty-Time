@@ -113,4 +113,10 @@ class BathroomsFragment : Fragment(), RecyclerViewClickListener {
         frag_trans!!.commit()
 
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Review"
+    }
 }
