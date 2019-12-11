@@ -80,15 +80,16 @@ class ReviewFragment : Fragment() {
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    var i = 1
+                    //var i = 1 ??????????????????????????????????????????????????????
                     for(k in document){
 
                         if(k.data.get("bathroomID").toString() == arguments!!.getString("ID")){
                             val date = k.data.get("date").toString()
                             val rating = k.data.get("rating").toString()
                             val reviewText = k.data.get("review").toString()
-                            reviews += Review(i, date, rating, reviewText)
-                            i += 1
+                            val id = k.data.get("userID").toString().toInt()
+                            reviews += Review(id, date, rating, reviewText)
+                            //i += 1 ???????????????????????????
                         }
 
 

@@ -31,14 +31,13 @@
                 app:srcCompat="@drawable/user" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/reviewCardUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="8dp"
 
                 android:paddingRight="200dp"
-                android:text="username"
                 android:textAllCaps="false"
                 android:textColor="#FCFFFFFF"
                 android:textSize="18sp"
