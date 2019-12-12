@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.loginPage.LoginActivity"
-    android:background="@drawable/login_picture">
+    android:background="@drawable/login_picture_final">
 
 
     <com.google.android.gms.common.SignInButton
