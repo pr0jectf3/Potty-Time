@@ -1,7 +1,9 @@
 package com.example.pottytime.ui.dashboard
 
 import android.content.Intent
+import android.content.Intent.getIntent
 import android.os.Bundle
+import android.os.Handler
 import android.view.*
 import android.widget.Button
 import android.widget.Switch
@@ -55,6 +57,8 @@ class DashboardFragment : Fragment() {
 
         currentUserUid = auth?.currentUser?.uid
 
+
+
         // Set the email for the user
 //        val userEmail = FirebaseAuth.getInstance().currentUser!!.email
 //        root.emailAddress.setText(userEmail);
@@ -88,6 +92,8 @@ class DashboardFragment : Fragment() {
                 val lastName = document.get("lastName").toString()
                 val gender = document.get("gender").toString()
                 val displayName = document.get("displayName").toString()
+
+
 
                 root.firstName.setText(firstName)
                 root.lastName.setText(lastName)
@@ -140,6 +146,10 @@ class DashboardFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Profile"
     }
 
-
+    override fun onResume() {
+        x = 0;
+        super.onResume()
+        this.onCreate(null)
+    }
 
 }

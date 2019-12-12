@@ -42,7 +42,7 @@
     <EditText
         android:id="@+id/editFirstName"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="16dp"
@@ -50,7 +50,6 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:hint="Enter First Name"
         app:layout_constraintBottom_toTopOf="@+id/editLastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -58,7 +57,7 @@
     <EditText
         android:id="@+id/editLastName"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="16dp"
@@ -66,7 +65,6 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:hint="Enter Last Name"
         app:layout_constraintBottom_toTopOf="@+id/editGender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
@@ -74,14 +72,13 @@
     <EditText
         android:id="@+id/editGender"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/text_border"
         android:ems="10"
         android:gravity="center"
-        android:hint="Enter Gender"
         android:inputType="text"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/editDisplayName"
@@ -91,9 +88,8 @@
     <EditText
         android:id="@+id/editDisplayName"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:hint="Enter Display Name"
         android:layout_marginEnd="28dp"
         android:background="@drawable/text_border"
         android:ems="10"
@@ -105,7 +101,7 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:layout_marginBottom="20dp"
         android:text="First Name"
@@ -121,7 +117,7 @@
     <TextView
         android:id="@+id/textView12"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
 
         android:layout_marginBottom="20dp"
         android:gravity="center"
@@ -136,7 +132,7 @@
     <TextView
         android:id="@+id/textView13"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Gender"
@@ -150,7 +146,7 @@
     <TextView
         android:id="@+id/textView14"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
         app:layout_constraintHorizontal_bias="0.703"
         android:gravity="center"
