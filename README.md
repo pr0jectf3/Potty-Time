@@ -28,14 +28,15 @@ Like all software teams, we also ran into hiccups
 
 - Implements Google Firebase for authentication
 
-![Screenshot of Login Page](https://octodex.github.com/images/yaktocat.png)
+![Screenshot of Login Page](https://i.imgur.com/jIgCzw8.png) ![Screenshot of Logging in](https://i.imgur.com/5o7e1eK.png) ![Screenshot of Login Page](https://i.imgur.com/g4bov5w.png)
 
 ## Finding a Toilet
 
 - Data is from Firebase' Firestore
-- noSQL
+- Has a list of added restrooms
+- Implements a filtering option
 
-![Screenshot of Home Screen](https://octodex.github.com/images/yaktocat.png)
+![Screenshot of Home Screen](https://i.imgur.com/DDPB1EB.png) ![Screenshot of Filtering](https://i.imgur.com/0IaD6y4.png)
 
 ## Leaving a Review
 
