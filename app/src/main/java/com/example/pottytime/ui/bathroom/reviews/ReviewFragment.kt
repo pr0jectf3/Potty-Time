@@ -52,39 +52,63 @@ class ReviewFragment : Fragment() {
                 val uid = FirebaseAuth.getInstance().uid ?: ""
                 val user = db.collection("users").whereEqualTo("uid",uid)
 
+                val ratingDialog = mDialogView.addReviewRating.text.toString()
 
-                user.get().addOnSuccessListener { document -> if(document != null){
+                if(!isNullOrEmpty(ratingDialog)){
+                    if(ratingDialog.toDouble() > 0 && ratingDialog.toDouble() <= 5) {
+                        user.get().addOnSuccessListener { document ->
+                            if (document != null) {
 
-                    var userID = -1;
+                                var userID = -1;
 
-                    for(field in document) {
-                        userID = field.get("userID").toString().toInt()
+                                for (field in document) {
+                                    userID = field.get("userID").toString().toInt()
+                                }
+
+                                val current = LocalDateTime.now()
+                                val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+                                val formatted = current.format(formatter)
+
+                                val review = hashMapOf(
+                                    "bathroomID" to arguments!!.get("ID").toString().toInt(),
+                                    "date" to formatted.toString(),
+                                    "dislikes" to 0,
+                                    "likes" to 0,
+                                    "rating" to ratingDialog.toDouble(),
+                                    "review" to mDialogView.addReviewText.text.toString(),
+                                    "userID" to userID
+                                )
+
+                                if (userID != -1) {
+                                    db.collection("reviews").add(review)
+                                        .addOnSuccessListener {
+                                            Log.d(
+                                                "reviewAdd",
+                                                "DocumentSnapshot successfully written!"
+                                            )
+                                        }
+                                        .addOnFailureListener { e ->
+                                            Log.w(
+                                                "reviewAdd",
+                                                "Error writing document",
+                                                e
+                                            )
+                                        }
+                                }
+
+                            }
+                        }
+
+                        mAlertDialog.dismiss()
+                        showReviews()
+                    } else {
+                        Toast.makeText(activity, "Rating must be between 1 and 5", Toast.LENGTH_SHORT).show()
                     }
 
-                    val current = LocalDateTime.now()
-                    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-                    val formatted = current.format(formatter)
+                } else {
+                    Toast.makeText(activity, "Rating can not be empty!", Toast.LENGTH_SHORT).show()
+                }
 
-                    val review = hashMapOf(
-                        "bathroomID" to arguments!!.get("ID").toString().toInt(),
-                        "date" to formatted.toString(),
-                        "dislikes" to 0,
-                        "likes" to 0,
-                        "rating" to mDialogView.addReviewRating.text.toString().toDouble(),
-                        "review" to mDialogView.addReviewText.text.toString(),
-                        "userID" to userID
-                    )
-
-                    if(userID != -1){
-                    db.collection("reviews").add(review)
-                        .addOnSuccessListener { Log.d("reviewAdd", "DocumentSnapshot successfully written!") }
-                        .addOnFailureListener { e -> Log.w("reviewAdd", "Error writing document", e) }
-                    }
-
-                } }
-
-                mAlertDialog.dismiss()
-                showReviews()
             }
 
             mDialogView.addReviewCancel.setOnClickListener{
@@ -169,5 +193,10 @@ class ReviewFragment : Fragment() {
             }
     }
 
+    fun isNullOrEmpty(str: String?): Boolean {
+        if (str != null && !str.isEmpty())
+            return false
+        return true
+    }
 
 }

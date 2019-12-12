@@ -45,22 +45,21 @@
     <TextView
         android:id="@+id/firstName"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="16dp"
-        android:gravity="center"
         android:background="@drawable/text_border"
+        android:gravity="center"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/lastName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/lastName"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="16dp"
@@ -75,12 +74,12 @@
     <TextView
         android:id="@+id/gender"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="16dp"
-        android:gravity="center"
         android:background="@drawable/text_border"
+        android:gravity="center"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/displayName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +89,7 @@
     <TextView
         android:id="@+id/displayName"
         android:layout_width="240dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="24dp"
@@ -108,9 +107,9 @@
         android:layout_height="48dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp"
-        android:text="Sign Out"
+        android:layout_marginTop="100dp"
         android:background="@drawable/rounded_button"
+        android:text="Sign Out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +119,7 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="First Name"
@@ -134,7 +133,7 @@
     <TextView
         android:id="@+id/textView9"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="20dp"
 
         android:gravity="center"
@@ -149,7 +148,7 @@
     <TextView
         android:id="@+id/textView10"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
 
         android:layout_marginBottom="20dp"
         android:gravity="center"
@@ -164,14 +163,14 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="89dp"
-        android:layout_height="61dp"
+        android:layout_height="40dp"
 
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Display Name"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toStartOf="@+id/displayName"
-        app:layout_constraintHorizontal_bias="0.703"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
