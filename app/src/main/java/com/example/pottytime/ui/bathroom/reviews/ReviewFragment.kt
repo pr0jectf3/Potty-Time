@@ -70,7 +70,7 @@ class ReviewFragment : Fragment() {
                         "date" to formatted.toString(),
                         "dislikes" to 0,
                         "likes" to 0,
-                        "rating" to mDialogView.addReviewRating.text.toString().toInt(),
+                        "rating" to mDialogView.addReviewRating.text.toString().toDouble(),
                         "review" to mDialogView.addReviewText.text.toString(),
                         "userID" to userID
                     )
@@ -84,6 +84,7 @@ class ReviewFragment : Fragment() {
                 } }
 
                 mAlertDialog.dismiss()
+                showReviews()
             }
 
             mDialogView.addReviewCancel.setOnClickListener{
