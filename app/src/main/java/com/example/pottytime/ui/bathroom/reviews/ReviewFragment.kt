@@ -51,11 +51,10 @@ class ReviewFragment : Fragment() {
             mDialogView.addReviewConfirm.setOnClickListener{
                 val uid = FirebaseAuth.getInstance().uid ?: ""
                 val user = db.collection("users").whereEqualTo("uid",uid)
+                val ratingStar = mDialogView.ratingBar.rating.toString().toDouble()
 
-                val ratingDialog = mDialogView.addReviewRating.text.toString()
 
-                if(!isNullOrEmpty(ratingDialog)){
-                    if(ratingDialog.toDouble() > 0 && ratingDialog.toDouble() <= 5) {
+
                         user.get().addOnSuccessListener { document ->
                             if (document != null) {
 
@@ -74,7 +73,7 @@ class ReviewFragment : Fragment() {
                                     "date" to formatted.toString(),
                                     "dislikes" to 0,
                                     "likes" to 0,
-                                    "rating" to ratingDialog.toDouble(),
+                                    "rating" to ratingStar,
                                     "review" to mDialogView.addReviewText.text.toString(),
                                     "userID" to userID
                                 )
@@ -101,13 +100,6 @@ class ReviewFragment : Fragment() {
 
                         mAlertDialog.dismiss()
                         showReviews()
-                    } else {
-                        Toast.makeText(activity, "Rating must be between 1 and 5", Toast.LENGTH_SHORT).show()
-                    }
-
-                } else {
-                    Toast.makeText(activity, "Rating can not be empty!", Toast.LENGTH_SHORT).show()
-                }
 
             }
 
