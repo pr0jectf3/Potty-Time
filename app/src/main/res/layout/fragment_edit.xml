@@ -148,11 +148,11 @@
         android:layout_width="89dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintHorizontal_bias="0.703"
         android:gravity="center"
         android:text="Display Name"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toStartOf="@+id/editDisplayName"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 

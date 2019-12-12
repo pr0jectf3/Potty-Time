@@ -16,10 +16,10 @@ import kotlinx.android.synthetic.main.fragment_edit.view.*
 
 class EditFragment : Fragment() {
 
-    private var user: FirebaseUser? = null
+    //private var user: FirebaseUser? = null
     var auth : FirebaseAuth? = null
     var currentUserUid : String? = null
-    var fbAuth = FirebaseAuth.getInstance()
+    //var fbAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
     val uid = FirebaseAuth.getInstance().uid ?: ""
 
@@ -32,7 +32,7 @@ class EditFragment : Fragment() {
         currentUserUid = auth?.currentUser?.uid
 
         val root = inflater.inflate(R.layout.fragment_edit, container, false)
-        val userEmail = FirebaseAuth.getInstance().currentUser!!.email ?: ""
+        //val userEmail = FirebaseAuth.getInstance().currentUser!!.email ?: ""
         val user = db.collection("users").document(uid)
 
         user.get().addOnSuccessListener { document ->
@@ -94,12 +94,13 @@ class EditFragment : Fragment() {
                     )
 
                     user.update(tempUser)
+                    replaceFragment(DashboardFragment())
                 }else {
                     println("No document")
                 }
             }
 
-            replaceFragment(DashboardFragment())
+
 
             true
         }
