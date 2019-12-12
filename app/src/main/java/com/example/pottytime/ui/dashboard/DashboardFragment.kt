@@ -146,8 +146,7 @@ class DashboardFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Profile"
     }
 
-    override fun onResume() {
-        x = 0;
+    override fun onResume() {checkIfUserLogOut
         super.onResume()
         this.onCreate(null)
     }
