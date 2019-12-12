@@ -9,13 +9,15 @@
         android:id="@+id/search_userinfo"
         android:layout_width="220dp"
         android:layout_height="44dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/round_enter_text_layout"
         android:ems="10"
         android:hint="Search for a user"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/search_userbutton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,23 +25,27 @@
         android:id="@+id/search_userbutton"
         android:layout_width="52dp"
         android:layout_height="43dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="36dp"
-        android:background="@android:color/background_light"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="56dp"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_search_black_24dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_list_of_users"
-        android:layout_width="334dp"
-        android:layout_height="412dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="387dp"
+        android:layout_height="452dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="16dp"
+        android:paddingBottom="56dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_userinfo"
+        tools:listitem="@layout/user_list_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.pottytime.ui.notifications
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,31 +49,38 @@ class SearchUserFragment : Fragment() {
     private fun fetchUsers(whatUserTyped : String){
         val user = db.collection("users").whereEqualTo("displayName",whatUserTyped)
 
+
         user.get().addOnSuccessListener { document ->
             val adapter = GroupAdapter<ViewHolder>()
+
+            if(document.isEmpty){
+                Toast.makeText(activity, "This user name does not exist!", Toast.LENGTH_SHORT).show()
+            }
             if(document != null){
                 for(field in document){
-                    val user = UserInfo(field.get("displayName").toString(), field.get("firstName").toString(), field.get("lastName").toString(), field.get("gender").toString(), field.get("email").toString())
+                    println("HERE")
+                    val userInformation = UserInfo(field.get("displayName").toString(), field.get("firstName").toString(), field.get("lastName").toString(), field.get("gender").toString(), field.get("email").toString())
 
-                    if(user != null){
-                        adapter.add(UserItem(user))
+                    if(userInformation != null){
+                        adapter.add(UserItem(userInformation))
+                    } else {
+                        println("Failed")
                     }
                 }
 
                 recyclerview_list_of_users.adapter = adapter
-
             }else {
-                println("No document")
+                Toast.makeText(activity, "This user name does not exist!", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     class UserItem(val user: UserInfo) : Item<ViewHolder>() {
         override fun bind(viewHolder: ViewHolder, position: Int) {
-            viewHolder.itemView.search_displayname.text = user.displayName
-            viewHolder.itemView.search_email.text = user.email
-            viewHolder.itemView.search_fullname.text = user.firstName + user.lastName
-            viewHolder.itemView.search_gender.text = user.gender
+            viewHolder.itemView.search_displayname.text = "Display Name: " + user.displayName
+            viewHolder.itemView.search_email.text = "Email: " + user.email
+            viewHolder.itemView.search_fullname.text = "Full Name: " +user.firstName + user.lastName
+            viewHolder.itemView.search_gender.text = "Gender: " + user.gender
         }
 
         override fun getLayout(): Int {
