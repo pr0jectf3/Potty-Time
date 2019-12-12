@@ -30,8 +30,7 @@ Like all software teams, we also ran into hiccups
 - No need to keep signing in
   - Keeps track of you logged in
 
-<img src="https://i.imgur.com/jIgCzw8.png" width="270" height="567.5">
-<img src="https://i.imgur.com/5o7e1eK.png" width="270" height="567.5">
+<img src="https://i.imgur.com/jIgCzw8.png" width="270" height="567.5"> <img src="https://i.imgur.com/5o7e1eK.png" width="270" height="567.5">
 
 
 ## Finding a Toilet
@@ -40,8 +39,7 @@ Like all software teams, we also ran into hiccups
 - Has a list of added restrooms
   - Implements a filtering option
 
-<img src="https://i.imgur.com/DDPB1EB.png" width="270" height="567.5">
-<img src="https://i.imgur.com/57zJ1YE.png" width="270" height="567.5">
+<img src="https://i.imgur.com/DDPB1EB.png" width="270" height="567.5"> <img src="https://i.imgur.com/57zJ1YE.png" width="270" height="567.5">
 
 
 
@@ -49,10 +47,8 @@ Like all software teams, we also ran into hiccups
 
 - Users can leave a review on restrooms
   - Can aid other users in their decision
-- Reviews are moderated before going live
 
-<img src="https://i.imgur.com/cua4Rky.png" width="270" height="567.5">
-<img src="https://i.imgur.com/JcugNIN.png" width="270" height="567.5">
+<img src="https://i.imgur.com/cua4Rky.png" width="270" height="567.5"> <img src="https://i.imgur.com/JcugNIN.png" width="270" height="567.5">
 
 
 ## User Profile
