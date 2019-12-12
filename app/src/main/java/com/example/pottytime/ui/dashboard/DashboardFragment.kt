@@ -121,15 +121,15 @@ class DashboardFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
-       R.id.edit -> {
-           replaceFragment(EditFragment())
-           true
+        R.id.edit -> {
+            replaceFragment(EditFragment())
+            true
         }
         else -> super.onOptionsItemSelected(item)
     }
 
     private fun replaceFragment(fragment: Fragment) {
-       val fragmentTransaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
+        val fragmentTransaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragmentContainer, fragment)
         fragmentTransaction.commit()
     }

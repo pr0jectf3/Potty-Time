@@ -35,5 +35,9 @@
     <string name="reviewCardReview">Review</string>
 
     <string name="plus_sign">+</string>
+    <string name="onefive">1~5</string>
+    <string name="letus">How do you feel about this bathroom?</string>
+    <string name="addReview">Add</string>
+    <string name="addCancel">Cancel</string>
 
 </resources>
