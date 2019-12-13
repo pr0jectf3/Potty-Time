@@ -192,7 +192,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                     val building = document.get("building").toString()
                     val floor = document.get("floor").toString()
                     val coord = LatLng(lat,lon)
-                    val marker: MarkerOptions = MarkerOptions().position(coord).title("bathroom")
+                    val marker: MarkerOptions = MarkerOptions().position(coord).title(building).snippet("Level $floor")
                     marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.toilets_inclusive))
                     mMap.addMarker(marker)
                     //mMap.addMarker(MarkerOptions().position(coord).title(building).snippet("Floor: " + floor))
