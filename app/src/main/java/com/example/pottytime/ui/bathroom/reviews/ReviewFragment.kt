@@ -23,7 +23,8 @@ import kotlinx.android.synthetic.main.fragment_review.*
 import kotlinx.android.synthetic.main.fragment_review.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-
+import androidx.databinding.DataBindingUtil
+import com.example.pottytime.databinding.FragmentReviewBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -39,9 +40,14 @@ class ReviewFragment : Fragment() {
         // Inflate the layout for this fragment
 
         Log.d("DEBUG", arguments!!.getString("ID"))
-        val view = inflater.inflate(R.layout.fragment_review, container, false)
+        val binding = DataBindingUtil.inflate<FragmentReviewBinding>(
+            inflater,
+            R.layout.fragment_review,
+            container,
+            false
+        )
 
-        view.addReview.setOnClickListener{
+        binding.addReview.setOnClickListener{
            //inflate
             val mDialogView = LayoutInflater.from(activity).inflate(R.layout.dialog_addreview, null)
             val mBuilder = AlertDialog.Builder(activity).setView(mDialogView).setTitle("Add a Review")
@@ -108,42 +114,42 @@ class ReviewFragment : Fragment() {
             }
         }
 
-        view.findViewById<TextView>(R.id.reviewLocation).text = arguments!!.getString("building")
-        view.findViewById<TextView>(R.id.reviewFloor).text = arguments!!.getString("floor")
+        binding.reviewLocation.text = arguments!!.getString("building")
+        binding.reviewFloor.text = arguments!!.getString("floor")
 
         var j = arguments!!.getString("floor").toString().toInt() % 10
         var k = arguments!!.getString("floor").toString().toInt() % 100
 
         if (j == 1 && k != 11)
-            view.findViewById<TextView>(R.id.reviewFloorsub).text = "st"
+            binding.reviewFloorsub.text = "st"
         else if (j == 2 && k != 12)
-            view.findViewById<TextView>(R.id.reviewFloorsub).text = "nd"
+            binding.reviewFloorsub.text = "nd"
         else if (j == 3 && k != 13)
-            view.findViewById<TextView>(R.id.reviewFloorsub).text = "rd"
+            binding.reviewFloorsub.text = "rd"
         else
-            view.findViewById<TextView>(R.id.reviewFloorsub).text = "th"
+            binding.reviewFloorsub.text = "th"
 
         when(arguments!!.getString("gender").toString()){
-            "Male" -> view.findViewById<ImageView>(R.id.bathroomGender).setImageResource(R.drawable.male_on)
-            "Female" -> view.findViewById<ImageView>(R.id.bathroomGender).setImageResource(R.drawable.female_on)
-            else -> view.findViewById<ImageView>(R.id.bathroomGender).setImageResource(R.drawable.neutral_on)
+            "Male" -> binding.bathroomGender.setImageResource(R.drawable.male_on)
+            "Female" -> binding.bathroomGender.setImageResource(R.drawable.female_on)
+            else -> binding.bathroomGender.setImageResource(R.drawable.neutral_on)
         }
 
         if(arguments!!.getBoolean("isHandicap")) {
-            view.findViewById<ImageView>(R.id.bathroomHandicap).setImageResource(R.drawable.handicap_on)
+            binding.bathroomHandicap.setImageResource(R.drawable.handicap_on)
         } else {
-            view.findViewById<ImageView>(R.id.bathroomHandicap).setImageResource(R.drawable.handicap_off)
+            binding.bathroomHandicap.setImageResource(R.drawable.handicap_off)
         }
 
         if(arguments!!.getBoolean("isFamily")) {
-            view.findViewById<ImageView>(R.id.bathroomFamily).setImageResource(R.drawable.family_on)
+            binding.bathroomFamily.setImageResource(R.drawable.family_on)
         } else {
-            view.findViewById<ImageView>(R.id.bathroomFamily).setImageResource(R.drawable.family_off)
+            binding.bathroomFamily.setImageResource(R.drawable.family_off)
         }
 
         showReviews()
 
-        return view
+        return binding.root
     }
 
     private fun showReviews(){
