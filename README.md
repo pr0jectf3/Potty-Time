@@ -71,6 +71,11 @@ The integration of Google services
 
 <img src="https://i.imgur.com/pvWJyMH.png" width="270" height="567.5">
 
+## Searching A User
+
+- Allows the searching of other users
+
+<img src="https://i.imgur.com/enFXbWo.png" width="270" height="567.5">
 
 ## Video Demo
-[![Watch the video](https://img.youtube.com/vi/SUpXNNfPDNc/maxresdefault.jpg)](https://youtu.be/SUpXNNfPDNc)
+[![Watch the video](https://img.youtube.com/vi/AOHNrvxKVIo/maxresdefault.jpg)](https://youtu.be/AOHNrvxKVIo)

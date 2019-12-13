@@ -15,6 +15,12 @@ import com.example.pottytime.ui.bathroom.reviews.RecyclerViewClickListener
 import com.example.pottytime.ui.bathroom.reviews.ReviewFragment
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_bathrooms.*
+import androidx.databinding.DataBindingUtil
+import com.example.pottytime.databinding.FragmentBathroomsBinding
+import android.view.animation.AnimationUtils.loadLayoutAnimation
+import android.view.animation.LayoutAnimationController
+import android.view.animation.AnimationUtils
+
 
 class BathroomsFragment : Fragment(), RecyclerViewClickListener {
 
@@ -26,7 +32,16 @@ class BathroomsFragment : Fragment(), RecyclerViewClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bathrooms, container, false)
+        val binding = DataBindingUtil.inflate<FragmentBathroomsBinding>(
+            inflater,
+            R.layout.fragment_bathrooms,
+            container,
+            false
+        )
+
+
+
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -42,7 +57,9 @@ class BathroomsFragment : Fragment(), RecyclerViewClickListener {
 
     fun showReviews(){
 
-        refreshReviewLayout.isRefreshing = true
+        if(refreshReviewLayout != null) {
+            refreshReviewLayout.isRefreshing = true
+        }
 
         var bathrooms = listOf<Bathroom>()
 
@@ -66,10 +83,16 @@ class BathroomsFragment : Fragment(), RecyclerViewClickListener {
                         i += 1
 
                     }
+                    if(refreshReviewLayout != null) {
+                        refreshReviewLayout.isRefreshing = false
 
-                    refreshReviewLayout.isRefreshing = false
-                    recyclerViewReview.layoutManager = LinearLayoutManager(activity)
-                    recyclerViewReview.adapter = BathroomsAdapter(bathrooms, this)
+                        val resId = R.anim.layout_animation_fall_down
+                        val animation = loadLayoutAnimation(activity, resId)
+                        recyclerViewReview.setLayoutAnimation(animation)
+
+                        recyclerViewReview.layoutManager = LinearLayoutManager(activity)
+                        recyclerViewReview.adapter = BathroomsAdapter(bathrooms, this)
+                    }
 
 
                 } else {

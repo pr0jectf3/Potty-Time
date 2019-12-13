@@ -1,114 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/reviewLinearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="100"
     tools:context=".ui.bathroom.reviews.ReviewFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/reviewLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:text="@string/reviewLocation"
-            android:textSize="30sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/reviewFloor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="1"
-            android:text="@string/reviewFloor" />
-
-        <TextView
-            android:id="@+id/reviewFloorsub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/reviewFloorSub" />
-
-        <TextView
-            android:id="@+id/reviewFloorFloor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:text="@string/reviewFloorFloor" />
-
-    </LinearLayout>
-
-    <LinearLayout
+        android:id="@+id/reviewLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
 
-        <ImageView
-            android:id="@+id/bathroomGender"
-            android:layout_width="45dp"
-            android:layout_height="75dp"
-            android:layout_weight="1"
-            android:contentDescription="gender"
-            app:srcCompat="@drawable/male_off" />
-
-        <ImageView
-            android:id="@+id/bathroomFamily"
-            android:layout_width="45dp"
-            android:layout_height="75dp"
-            android:layout_weight="1"
-            android:contentDescription="family"
-            app:srcCompat="@drawable/family_off" />
-
-        <ImageView
-            android:id="@+id/bathroomHandicap"
-            android:layout_width="45dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="200dp"
-            android:layout_weight="1"
-            android:contentDescription="handicap"
-            app:srcCompat="@drawable/handicap_off" />
-
-        <Button
-            android:id="@+id/addReview"
-            android:layout_width="59dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/icons8_plus_64"
-            android:scaleX=".75"
-            android:scaleY=".75" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/reviewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:text="@string/reviewLocation"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/reviewFloor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:text="@string/reviewFloor" />
+
+            <TextView
+                android:id="@+id/reviewFloorsub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/reviewFloorSub" />
+
+            <TextView
+                android:id="@+id/reviewFloorFloor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/reviewFloorFloor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/bathroomGender"
+                android:layout_width="45dp"
+                android:layout_height="75dp"
+                android:layout_weight="1"
+                android:contentDescription="gender"
+                app:srcCompat="@drawable/male_off" />
+
+            <ImageView
+                android:id="@+id/bathroomFamily"
+                android:layout_width="45dp"
+                android:layout_height="75dp"
+                android:layout_weight="1"
+                android:contentDescription="family"
+                app:srcCompat="@drawable/family_off" />
+
+            <ImageView
+                android:id="@+id/bathroomHandicap"
+                android:layout_width="45dp"
+                android:layout_height="75dp"
+                android:layout_marginRight="200dp"
+                android:layout_weight="1"
+                android:contentDescription="handicap"
+                app:srcCompat="@drawable/handicap_off" />
+
+            <Button
+                android:id="@+id/addReview"
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/icons8_plus_64"
+                android:scaleX=".75"
+                android:scaleY=".75" />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewReview2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:paddingBottom="56dp"
+            tools:listitem="@layout/review_card"
+            android:layoutAnimation="@anim/layout_animation_fall_down">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewReview2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:paddingBottom="56dp"
-        tools:listitem="@layout/review_card" >
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-</LinearLayout>
+</layout>
