@@ -22,7 +22,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/bathroom_card" />
+                android:layoutAnimation="@anim/layout_animation_fall_down"
+                />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
