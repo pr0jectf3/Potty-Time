@@ -17,6 +17,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_bathrooms.*
 import androidx.databinding.DataBindingUtil
 import com.example.pottytime.databinding.FragmentBathroomsBinding
+import android.view.animation.AnimationUtils.loadLayoutAnimation
+import android.view.animation.LayoutAnimationController
+import android.view.animation.AnimationUtils
+
 
 class BathroomsFragment : Fragment(), RecyclerViewClickListener {
 
@@ -81,6 +85,11 @@ class BathroomsFragment : Fragment(), RecyclerViewClickListener {
                     }
                     if(refreshReviewLayout != null) {
                         refreshReviewLayout.isRefreshing = false
+
+                        val resId = R.anim.layout_animation_fall_down
+                        val animation = loadLayoutAnimation(activity, resId)
+                        recyclerViewReview.setLayoutAnimation(animation)
+
                         recyclerViewReview.layoutManager = LinearLayoutManager(activity)
                         recyclerViewReview.adapter = BathroomsAdapter(bathrooms, this)
                     }

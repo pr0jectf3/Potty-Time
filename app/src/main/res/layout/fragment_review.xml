@@ -110,7 +110,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:paddingBottom="56dp"
-            tools:listitem="@layout/review_card">
+            tools:listitem="@layout/review_card"
+            android:layoutAnimation="@anim/layout_animation_fall_down">
 
         </androidx.recyclerview.widget.RecyclerView>
 
