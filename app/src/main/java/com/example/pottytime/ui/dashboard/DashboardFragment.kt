@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.example.pottytime.R
+import com.example.pottytime.databinding.FragmentDashboardBinding
 import com.example.pottytime.ui.loginPage.LoginActivity
 import com.example.pottytime.ui.models.User
 import com.google.firebase.auth.FirebaseAuth
@@ -49,8 +50,11 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View?{
+        val binding: FragmentDashboardBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_dashboard, container, false)
+
         dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+//        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
 
         auth = FirebaseAuth.getInstance()
@@ -95,16 +99,16 @@ class DashboardFragment : Fragment() {
 
 
 
-                root.firstName.setText(firstName)
-                root.lastName.setText(lastName)
-                root.gender.setText(gender)
-                root.displayName.setText(displayName)
+                binding.firstName.setText(firstName)
+                binding.lastName.setText(lastName)
+                binding.gender.setText(gender)
+                binding.displayName.setText(displayName)
             }else {
                 println("No document")
             }
         }
 
-        root.btn_sign_out_temp.setOnClickListener {
+        binding.btnSignOutTemp.setOnClickListener {
             activity?.finish()
             fbAuth.signOut()
             auth?.signOut()
@@ -116,7 +120,7 @@ class DashboardFragment : Fragment() {
             startActivity(intent)
         }
         setHasOptionsMenu(true)
-        return root
+        return binding.root
     }
 
 
@@ -134,10 +138,20 @@ class DashboardFragment : Fragment() {
         else -> super.onOptionsItemSelected(item)
     }
 
+
     private fun replaceFragment(fragment: Fragment) {
-        val fragmentTransaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.commit()
+//        val fragmentTransaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
+//        fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+        Navigation.createNavigateOnClickListener(R.id.action_navigation_dashboard_to_editFragment2)
+        val manager = fragmentManager
+
+        val frag_trans = manager!!.beginTransaction()
+
+        frag_trans!!.replace(R.id.nav_host_fragment, fragment)
+        frag_trans.addToBackStack(null);
+        frag_trans.commit()
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

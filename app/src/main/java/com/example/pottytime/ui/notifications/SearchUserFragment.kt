@@ -10,10 +10,12 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pottytime.R
+import com.example.pottytime.databinding.FragmentSearchUserBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
@@ -35,15 +37,17 @@ class SearchUserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding: FragmentSearchUserBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_search_user, container, false)
 
-        val root = inflater.inflate(R.layout.fragment_search_user, container, false)
+        //val root = inflater.inflate(R.layout.fragment_search_user, container, false)
 
-        root.search_userbutton.setOnClickListener{
-            val whatUserTyped : String = root.search_userinfo.text.toString()
+        binding.searchUserbutton.setOnClickListener{
+            val whatUserTyped : String = binding.searchUserinfo.text.toString()
             fetchUsers(whatUserTyped)
         }
 
-        return root
+        return binding.root
     }
 
     private fun fetchUsers(whatUserTyped : String){

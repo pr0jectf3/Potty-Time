@@ -109,7 +109,8 @@ class BathroomsFragment : Fragment(), RecyclerViewClickListener {
 
         val frag_trans = manager!!.beginTransaction()
 
-        frag_trans!!.replace(R.id.fragmentContainer, frag)
+        frag_trans!!.replace(R.id.nav_host_fragment, frag)
+        frag_trans.addToBackStack(null);
         frag_trans!!.commit()
 
     }
